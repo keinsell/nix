@@ -1,0 +1,180 @@
+[[language]]
+file-types = [
+    "md",
+    "markdown",
+    "mdx",
+    "mkd",
+    "mkdn",
+    "mdwn",
+    "mdown",
+    "markdn",
+    "mdtxt",
+    "mdtext",
+    "workbook",
+    { glob = "PULLREQ_EDITMSG" },
+]
+injection-regex = "md|markdown"
+language-servers = ["zk", "marksman", "markdown-oxide"]
+name = "markdown"
+roots = [".marksman.toml"]
+scope = "source.md"
+
+[language.block-comment-tokens]
+end = "-->"
+start = "<!--"
+
+[language.indent]
+tab-width = 2
+unit = "  "
+
+[[language]]
+auto-format = true
+language-servers = ["nixd", "nil"]
+name = "nix"
+
+[[language]]
+auto-format = true
+language-servers = [
+    { except-features = [
+        "format",
+    ], name = "typescript-language-server" },
+    "biome",
+]
+name = "javascript"
+
+[[language]]
+auto-format = true
+file-types = ["ts"]
+language-servers = [
+    { except-features = [
+        "format",
+    ], name = "typescript-language-server" },
+    "biome",
+]
+name = "typescript"
+roots = ["tsconfig.json", "package.json"]
+
+[[language]]
+auto-format = true
+language-servers = [
+    { except-features = [
+        "format",
+    ], name = "typescript-language-server" },
+    "biome",
+]
+name = "tsx"
+
+[[language]]
+auto-format = true
+language-servers = [
+    { except-features = [
+        "format",
+    ], name = "typescript-language-server" },
+    "biome",
+]
+name = "jsx"
+
+[[language]]
+language-servers = ["pyright", "ruff", "pylyzer"]
+name = "python"
+
+[language-server]
+[language-server.biome]
+args = ["lsp-proxy"]
+command = "biome"
+
+[language-server.nil]
+command = "nil"
+
+[language-server.nil.config.nil]
+[language-server.nil.config.nil.formatting]
+command = ["nixpkgs-fmt"]
+
+[language-server.nil.config.nil.nix.flake]
+autoEvalInputs = true
+
+[language-server.nixd]
+args = ["--inlay-hints", "--semantic-tokens"]
+command = "nixd"
+
+[language-server.pylyzer]
+command = "pylyzer"
+
+[language-server.pylyzer.config.settings]
+args = ["--server"]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff]
+args = ["server"]
+command = "ruff"
+
+[language-server.rust-analyzer.config.rust-analyzer]
+[language-server.rust-analyzer.config.rust-analyzer.cargo]
+loadOutDirsFromCheck = true
+
+[language-server.rust-analyzer.config.rust-analyzer.checkOnSave]
+command = "clippy"
+
+[language-server.rust-analyzer.config.rust-analyzer.completion.autoimport]
+enable = true
+
+[language-server.rust-analyzer.config.rust-analyzer.experimental]
+procAttrMacros = true
+
+[language-server.rust-analyzer.config.rust-analyzer.lens]
+methodReferences = true
+references = true
+
+[language-server.rust-analyzer.config.rust-analyzer.procMacro]
+enable = true
+
+[language-server.typescript-language-server]
+args = ["--stdio"]
+command = "typescript-language-server"
+
+[language-server.typescript-language-server.config]
+completionDisableFilterText = true
+hostInfo = "helix"
+
+[language-server.typescript-language-server.config.implicitProjectConfiguration]
+checkJs = true
+experimentalDecorators = true
+module = "NodeNext"
+target = "ESNext"
+
+[language-server.typescript-language-server.config.preferences]
+lazyConfiguredProjectsFromExternalProject = true
+
+[language-server.typescript-language-server.config.tsserver]
+useSyntaxServer = "auto"
+[language-server.typescript-language-server.config.tsserver.experimental]
+enableProjectDiagnostics = true
+
+[language-server.typescript-language-server.config.tsserver.implicitProjectConfig]
+checkJs = true
+experimentalDecorators = true
+module = "NodeNext"
+strictNullChecks = true
+target = "ESNext"
+useLocalTsdk = true
+
+[language-server.typescript-language-server.config.typescript]
+preferGoToSourceDefinition = true
+[language-server.typescript-language-server.config.typescript.implementationsCodeLens]
+enabled = true
+
+[language-server.typescript-language-server.config.typescript.referencesCodeLens]
+enabled = true
+showOnAllFunctions = true
+
+[language-server.typescript-language-server.config.typescript.updateImportsOnFileMove]
+enabled = "always"
+
+[language-server.typescript-language-server.config.typescript.workspaceSymbols]
+scope = "currentProject"
+
+[language-server.zk]
+args = ["lsp"]
+command = "zk"

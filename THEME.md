@@ -1,0 +1,2 @@
+- [Ferra](https://github.com/helix-editor/helix/blob/master/runtime/themes/ferra.toml)
+- [Fleet Dark](https://github.com/helix-editor/helix/blob/master/runtime/themes/fleet_dark.toml)
