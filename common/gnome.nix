@@ -1,31 +1,60 @@
 {pkgs, ...}: {
-  home.packages = [
-    pkgs.gnome.zenity
-    pkgs.gnome.sushi
-    pkgs.gnome.seahorse
-    pkgs.gnome.rygel
-    pkgs.gnome.gvfs
-    pkgs.gnome.gnome-tweaks
-    pkgs.gnome.gnome-software
-    pkgs.gnome.gnome-shell-extensions
-    pkgs.gnome-extension-manager
-    pkgs.gnomeExtensions.forge
-    pkgs.gnome-extensions-cli
-    pkgs.gnome-browser-connector
-    pkgs.gnomeExtensions.blur-my-shell
-    pkgs.gnomeExtensions.zen
-    pkgs.gnomeExtensions.vitals
-    pkgs.gnomeExtensions.runcat
-    pkgs.gnome-keyring
-    pkgs.gnome-autoar
-    pkgs.gnome-calendar
-    pkgs.gnome-desktop
-    pkgs.nautilus
-    pkgs.mission-center
-    pkgs.evolution
-    pkgs.resources
-    pkgs.gnome-contacts
-  ];
+  home.packages = with pkgs; [
+    gnome.zenity
+    gnome.sushi
+    gnome.seahorse
+    gnome.rygel
+    gnome.gnome-tweaks
+    gnome.gnome-software
+    gnome.gnome-shell-extensions
+    gnome-extension-manager
+    gnomeExtensions.forge
+    gnome-extensions-cli
+    gnome-browser-connector
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.zen
+    gnomeExtensions.vitals
+    gnomeExtensions.runcat
+    gnome-keyring
+    gnome-autoar
+    gnome-calendar
+    gnome-desktop
+    nautilus
+    mission-center
+    evolution
+    resources
+    gnome-contacts
+    gvfs
+    nautilus-open-any-terminal
+    nautilus-open-in-blackbox
+    seahorse    
+    rygel
+    gnome-tweaks
+    gnome-software   
+    gnome-frog
+    evince
+    gnome-boxes
+    gnome-builder
+    gnome-text-editor
+    gnome-gnome-font-viewer
+    gnome-dictionary
+    gnome-tour  
+    gnome-maps
+    gnome-characters
+    # A graphical directory tree analyzer
+    baobab
+    # A GNOME web browser based on the WebKit rendering engine
+    epiphany
+    # User documentation for GNOME
+    gnome-user-docs    
+    # Easy to use user-level file sharing for GNOME
+    gnome-user-share
+    # Movie player for the GNOME desktop based on GStreamer
+    totem
+    # Filesystem indexer and metadata extractor
+    tracker-miners
+    ];
+
 
   dconf.settings = {
     "org/gnome/mutter" = {

@@ -31,7 +31,8 @@
     pkgs.evolution
     pkgs.resources
     pkgs.gnome-contacts
-  ];
+    pkgs.s3fs
+      ];
 
   dconf.settings = {
     "org/gnome/mutter" = {

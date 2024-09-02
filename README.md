@@ -1,4 +1,4 @@
-<h1 align="center">❄️ Home Manager</h1>
+<h1 align="center">Igloo</h1>
 <p align="center">
   <b>A small homebrew of home manager</b>
   <br><br>
