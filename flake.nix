@@ -84,7 +84,7 @@
         };
 
       flake = {
-        homeModules.default = {pkgs, ...}: {
+        homeModules.default = {...}: {
           imports = [./home.nix];
         };
       };

@@ -4,7 +4,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: let
   sources = import ./npins;
@@ -16,6 +15,7 @@ in {
     ./modules/common/default.nix
     ./modules/modal-editor
     ./modules/shell
+    ./web-browser
   ];
 
   # Enable settings that make Home Manager work better on
@@ -254,6 +254,8 @@ in {
       # pkgs.solanum
       # pkgs.pkg-config
       pkgs.openssl
+      pkgs.rclone
+      pkgs.blackbox-terminal
     ];
 
     sessionVariables = {
@@ -286,14 +288,6 @@ in {
     urxvt.enable = true;
     watson.enable = true;
     rofi.enable = true;
-    firefox = {
-      enable = true;
-      nativeMessagingHosts = with pkgs; [
-        # bukubrow
-        browserpass
-        gnomeExtensions.gsconnect
-      ];
-    };
     # nushell = {
     #   enable = true;
     #   package = pkgs.nushellFull;

@@ -23,7 +23,7 @@ let
     revision,
     url ? null,
     hash,
-    branch ? null,
+    # branch ? null,
     ...
   }:
     assert repository ? type;
