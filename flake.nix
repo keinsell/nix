@@ -22,6 +22,10 @@
     # A flake-parts module to unify NixOS + nix-darwin + home-manager configuration in a single flake, while providing a consistent interface (and enabling common modules) for both Linux and macOS. For motivation, see https://community.flake.parts/nixos-flake
     nixos-flake.url = "github:srid/nixos-flake";
 
+    # age-encrypted secrets for NixOS and Home manager
+    agenix.url = "github:ryantm/agenix";
+    sops-nix.url = "github:Mic92/sops-nix";
+
     stylix.url = "github:danth/stylix";
     nixgl.url = "github:nix-community/nixGL";
     nuenv.url = "https://flakehub.com/f/DeterminateSystems/nuenv/*.tar.gz";
