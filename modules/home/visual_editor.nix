@@ -1,5 +1,5 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/zed-editor.nix
-{
+{lib, pkgs, ...}: {
   programs.zed-editor = {
     enable = true;
 
@@ -31,19 +31,28 @@
     ];
 
     userSettings = {
-      vim_mode = true;
+      vim_mode = false;
       base_keymap = "VSCode";
       soft_wrap = "editor_width";
       tab_size = 2;
 
       load_direnv = "shell_hook";
-      languages.Nix.language_servers = ["nixd" "!nil"]; # Force use of nixd over nil
+
+      languages.Nix = {
+        language_servers = ["nixd" "!nil"]; # Force use of nixd over nil
+        formatter = (lib.getExe pkgs.alejandra);
+      };
+
       lsp = let
         useDirenv = {binary.path_lookup = true;};
       in {
         haskell = useDirenv;
         rust_analyzer = useDirenv;
-        nixd = useDirenv;
+        nixd = {
+            binary.path = (lib.getExe pkgs.nixd);
+            binary.path_lookup = true;
+        };
+        nil.formatting.command =  (lib.getExe pkgs.alejandra);
       };
 
       buffer_font_family = "Scientifica";

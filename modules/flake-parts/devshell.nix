@@ -1,5 +1,5 @@
 {
-  perSystem = { pkgs, ... }: {
+  perSystem = {pkgs, ...}: {
     devShells.default = pkgs.mkShell {
       name = "nixos-shell";
       meta.description = "Shell for modyfing NixOS Configuration";

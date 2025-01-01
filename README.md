@@ -1,19 +1,30 @@
-# Home Manager
+# Niks
 
-❄️ Standalone Home Manager in headless configuration and compatibility with NixOS, Linux and macOS.
+❄️ Niks is unified configuration of devices owned by [`@keinsell`](https://github.com/keinsell) to avoid pain in managing and syncing dotfiles and security configurations. Including NixOS, Linux and MacOS.
+
 
 ## Getting Started
-
-### Prerequsites
-
-- Nix Package Manager: The bedrock upon which this entire setup rests.
-- Home Manager: he maestro that orchestrates the symphony of packages and configurations, ensuring everything is in perfect harmony.
 
 *For the convinient setup of new machines repository contains installation script `install` at the root of this repository*
 
 ### Installation
 
-Even through repository is using (experimental) Flakes you should remember that [flakes aren't real and cannot hurt you](https://jade.fyi/blog/flakes-arent-real/).
+Even through repository is using (experimental) Flakes you should remember that [flakes aren't real and cannot hurt you](https://jade.fyi/blog/flakes-arent-real/). Instllation process is explained from scratch as this repository is meant to configure operating system from scratch.
+
+#### Install XCode
+
+```
+  
+```
+
+#### Install Nix
+
+Install Nix with Determinate Systems's installer.
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm --extra-conf "trusted-users = $(whoami)"
+```
+
 
 #### Activating NixOS or nix-darwin configurations
 
@@ -30,3 +41,15 @@ If you are on a non-NixOS Linux (or on macOS but you do not use nix-darwin), you
 ```bash
 nix run .#activate $USER@
 ```
+
+## Features
+
+### Shell Configuration
+
+- `nushell` and `zsh` configurations.
+
+
+### Version Control
+
+#### Git Credential Manager (GCM)
+#### PGP Commit Signing Integration
