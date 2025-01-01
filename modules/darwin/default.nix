@@ -105,6 +105,7 @@ in {
       "abstract"
       "sketch@beta"
       "onyx" # Verify system files structure, run miscellaneous maintenance and more
+      "keybase" # Open-source key server, git and file storage
     ];
 
     brews = [

@@ -1,4 +1,8 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # Nix packages to install to $HOME
   # Search for packages here: https://search.nixos.org/packages
   home.packages = with pkgs;
@@ -39,10 +43,15 @@
       # On ubuntu, we need this less for `man home-configuration.nix`'s pager to
       # work.
       less
-
       rustup
       bun
       deno
+
+      # Security
+      keybase
+      age
+      age-plugin-ledger
+      age-plugin-fido2-hmac
     ]
     ++ (with nodePackages; [pnpm])
     ++ (
@@ -51,9 +60,9 @@
       else []
     );
 
-    home.file."${config.xdg.configHome}/ghostty/config" = {
-      source = ../../dotfiles/ghostly.toml;
-    };
+  home.file."${config.xdg.configHome}/ghostty/config" = {
+    source = ../../dotfiles/ghostly.toml;
+  };
 
   programs = {
     bat.enable = true;
