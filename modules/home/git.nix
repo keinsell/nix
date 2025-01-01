@@ -29,6 +29,10 @@
         pull.rebase = true;
         fetch.fsckObjects = true;
         index.threads = true;
+        push = {
+          # Make `git push` push relevant annotated tags when pushing branches out.
+          followTags = true;
+        };
       };
 
       signing = {
