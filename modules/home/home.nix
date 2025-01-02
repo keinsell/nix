@@ -15,6 +15,8 @@
       wget
       zstd
 
+      # Build and compilation tools
+      sccache
       ripgrep
       fd
       sd
@@ -60,9 +62,11 @@
       else []
     );
 
-  home.file."${config.xdg.configHome}/ghostty/config" = {
-    source = ../../dotfiles/ghostly.toml;
+  home.file = {
+    "${config.xdg.configHome}/ghostty/config".source = ../../dotfiles/ghostly.toml;
+    ".cargo/config.toml".source = ../../dotfiles/cargo.toml;
   };
+
 
   programs = {
     bat.enable = true;
